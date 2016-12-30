@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '1.4.2.RELEASE'
     id 'java'
+    id 'groovy'
 }
 
 task hello << {
@@ -30,4 +31,19 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("junit:junit")
+    compile("org.projectlombok:lombok:1.16.10")
+    
+    // mandatory dependencies for using Spock
+    compile "org.codehaus.groovy:groovy-all:2.4.1"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4-rc-3"
+    testCompile "org.spockframework:spock-spring:1.1-groovy-2.4-rc-3"
+}
+
+test {
+    testLogging {
+        exceptionFormat 'full'
+    }
+    testLogging {
+        events 'started', 'skipped', 'passed', 'failed'
+    }
 }
