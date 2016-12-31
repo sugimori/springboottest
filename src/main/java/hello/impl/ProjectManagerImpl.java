@@ -10,8 +10,12 @@ import hello.Staff;
 @Component
 public class ProjectManagerImpl implements CostManager {
 
-  @Autowired
   private Staff staff;
+  
+  // @Autowired
+  public ProjectManagerImpl(Staff staff) {
+    this.staff = staff;
+  }
 
   // 総開発費用算出メソッド(インタフェースのメソッドをオーバライド)
   @Override

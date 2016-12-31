@@ -17,7 +17,7 @@ public class FullTimeStaffImpl implements Staff {
     if (position.equals("設計")) {
       cost *= 1.5;
     } else if (position.equals("PG")) {
-      cost *= 1.3;
+      cost *= 1.2;
     } else {
       throw new IllegalArgumentException("引数指定エラー");
     }
